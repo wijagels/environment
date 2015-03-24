@@ -79,6 +79,7 @@ Plugin 'pangloss/vim-javascript' "better js indentation/highlighting
 Plugin 'marijnh/tern_for_vim' "js autocomplete, also needs an npm install
 Plugin 'vim-ruby/vim-ruby' "better ruby support (esp autocomp)
 Plugin 'rdnetto/YCM-Generator' "You complete me config generator
+Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 call vundle#end() 
 
 filetype plugin indent on 
