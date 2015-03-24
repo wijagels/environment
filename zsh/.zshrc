@@ -3528,5 +3528,4 @@ zrclocal
 # Local variables:
 # mode: sh
 # End:
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
