@@ -67,7 +67,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' "vundle
 Plugin 'chriskempson/base16-vim' "color schemes
 Plugin 'bling/vim-airline.git' "airline
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
 Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex' "latex
 Plugin 'tpope/vim-surround' "pair plugin, brackets etc
 Plugin 'tpope/vim-commentary' "comment stuff out
@@ -80,6 +80,8 @@ Plugin 'marijnh/tern_for_vim' "js autocomplete, also needs an npm install
 Plugin 'vim-ruby/vim-ruby' "better ruby support (esp autocomp)
 Plugin 'rdnetto/YCM-Generator' "You complete me config generator
 Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
+Plugin 'xolox/vim-misc' "Dependency for vim-notes
+Plugin 'xolox/vim-notes' "Note taking plugin
 call vundle#end() 
 
 filetype plugin indent on 
@@ -100,3 +102,7 @@ vmap <C-v> <C-r><C-o>+
 set t_co=256
 set background=dark
 colorscheme base16-monokai
+
+"Vim-notes settings
+:let g:notes_suffix = '.txt'
+:setlocal spell spelllang=en_us
