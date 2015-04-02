@@ -15,7 +15,7 @@ noremap <C-n> :NERDTreeToggle<CR> "NERDTree toggle
 set cursorline "highlight current line of cursor
 "hi CursorLine ctermbg=darkgray "8 = dark gray, 15 = white
 "hi Cursor ctermbg=15 ctermfg=8
-set colorcolumn=80 "highlight the column to break by
+" set colorcolumn=80 "highlight the column to break by
 highlight ColorColumn ctermbg=black "color
 set exrc "use directory specific vimrc if there
 set notimeout "waiting for keys
@@ -44,7 +44,7 @@ set smartcase "override ignore case if the search has Captials
 set showcmd "show the command in progress on last line of screen
 set hidden "keep unloaded buffers?
 set guioptions=aegimt
-set guifont=PragmataPro:h16
+set guifont=Droid\ Sans\ Mono:h16
 set incsearch "show search results as you type
 set t_co=256
 set showmatch "when bracket inserted, briefly jump to matching one if visible
@@ -82,7 +82,10 @@ Plugin 'rdnetto/YCM-Generator' "You complete me config generator
 Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 Plugin 'xolox/vim-misc' "Dependency for vim-notes
 Plugin 'xolox/vim-notes' "Note taking plugin
+Plugin 'airblade/vim-gitgutter' "Git gutter
+Plugin 'digitaltoad/vim-jade' "Jade support
 call vundle#end() 
+execute pathogen#infect()
 
 filetype plugin indent on 
 set autoread "if file changed outside of vim, just read it again
@@ -97,7 +100,6 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 vmap <C-v> <C-r><C-o>+
 
-
 "Chris Theme
 set t_co=256
 set background=dark
@@ -105,4 +107,6 @@ colorscheme base16-monokai
 
 "Vim-notes settings
 :let g:notes_suffix = '.txt'
+
+"Turn on spell check
 :setlocal spell spelllang=en_us
