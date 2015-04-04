@@ -2,6 +2,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# Get time information more frequently (>1 second vs >5 seconds)
+REPORTTIME=1
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:
