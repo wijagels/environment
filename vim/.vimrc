@@ -3,7 +3,7 @@ set shell=/usr/bin/zsh
 
 "Key controls
 "nmap s :w <enter>
-nmap q :q <enter> 
+nmap q :q <enter>
 imap <Tab> <C-P>
 map j gj
 map k gk
@@ -84,10 +84,10 @@ Plugin 'xolox/vim-misc' "Dependency for vim-notes
 Plugin 'xolox/vim-notes' "Note taking plugin
 Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
-call vundle#end() 
+call vundle#end()
 execute pathogen#infect()
 
-filetype plugin indent on 
+filetype plugin indent on
 set autoread "if file changed outside of vim, just read it again
 set guifont=Droid\ Sans\ Mono\ 11 "set the font to a better looking mono font
 au FileType python set softtabstop=2 | set shiftwidth=2
@@ -110,3 +110,6 @@ colorscheme base16-monokai
 
 "Turn on spell check
 :setlocal spell spelllang=en_us
+
+"Ycm default config
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

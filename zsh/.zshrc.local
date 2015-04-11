@@ -5,6 +5,10 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Get time information more frequently (>1 second vs >5 seconds)
 REPORTTIME=1
+
+export GOPATH="/home/william/go"
+
+alias emacs="cowsay -f dragon-and-cow Sorry but I can\'t let you do that Dave"
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:
