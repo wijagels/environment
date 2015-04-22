@@ -66,21 +66,18 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' "vundle
 Plugin 'chriskempson/base16-vim' "color schemes
-Plugin 'bling/vim-airline' "airline
+Plugin 'bling/vim-airline.git' "airline
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
 Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex' "latex
 Plugin 'tpope/vim-surround' "pair plugin, brackets etc
 Plugin 'tpope/vim-commentary' "comment stuff out
 Plugin 'tpope/vim-fugitive' "Git wrapper
-Plugin 'scrooloose/syntastic' "syntax checking
 Plugin 'scrooloose/nerdtree' "file browser
-Plugin 'Valloric/YouCompleteMe' "autocomplete
+Plugin 'scrooloose/syntastic' "syntax checking
 Plugin 'pangloss/vim-javascript' "better js indentation/highlighting
 Plugin 'marijnh/tern_for_vim' "js autocomplete, also needs an npm install
 Plugin 'vim-ruby/vim-ruby' "better ruby support (esp autocomp)
 Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
-Plugin 'xolox/vim-misc' "Dependency for vim-notes
-Plugin 'xolox/vim-notes' "Note taking plugin
 Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
 call vundle#end()
@@ -104,12 +101,7 @@ set t_co=256
 set background=dark
 colorscheme base16-monokai
 
-"Vim-notes settings
-:let g:notes_suffix = '.txt'
-
 "Turn on spell check
 :setlocal spell spelllang=en_us
 
-"Ycm default config
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:airline#extensions#tabline#enabled = 1

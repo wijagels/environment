@@ -8,7 +8,8 @@ REPORTTIME=1
 
 export GOPATH="/home/william/go"
 
-alias emacs="cowsay -f dragon-and-cow Sorry but I can\'t let you do that Dave"
+alias emacs="cowsay -f dragon-and-cow I\'m sorry, Dave. I\'m afraid I can\'t do that."
+alias nano=emacs
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:
