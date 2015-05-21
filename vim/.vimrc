@@ -44,7 +44,6 @@ set smartcase "override ignore case if the search has Captials
 set showcmd "show the command in progress on last line of screen
 set hidden "keep unloaded buffers?
 set guioptions=aegimt
-set guifont=Droid\ Sans\ Mono:h16
 set incsearch "show search results as you type
 set t_co=256
 set showmatch "when bracket inserted, briefly jump to matching one if visible
@@ -68,7 +67,6 @@ Plugin 'gmarik/Vundle.vim' "vundle
 Plugin 'chriskempson/base16-vim' "color schemes
 Plugin 'bling/vim-airline' "airline
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
-Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex' "latex
 Plugin 'tpope/vim-surround' "pair plugin, brackets etc
 Plugin 'tpope/vim-commentary' "comment stuff out
 Plugin 'tpope/vim-fugitive' "Git wrapper
@@ -83,12 +81,14 @@ Plugin 'xolox/vim-misc' "Dependency for vim-notes
 Plugin 'xolox/vim-notes' "Note taking plugin
 Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
+Plugin 'lervag/vimtex'
+Plugin 'wakatime/vim-wakatime'
 call vundle#end()
 execute pathogen#infect()
 
 filetype plugin indent on
 set autoread "if file changed outside of vim, just read it again
-set guifont=Droid\ Sans\ Mono\ 11 "set the font to a better looking mono font
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 "set the font to a better looking mono font
 au FileType python set softtabstop=2 | set shiftwidth=2
 au FileType ruby set tabstop=2 | set shiftwidth=2
 au FileType js set tabstop=2 | set shiftwidth=2
@@ -113,3 +113,7 @@ colorscheme base16-monokai
 "Ycm default config
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_powerline_fonts = 1
+
+let g:vimtex_fold_preamble = 0
