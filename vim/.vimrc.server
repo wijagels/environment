@@ -44,7 +44,6 @@ set smartcase "override ignore case if the search has Captials
 set showcmd "show the command in progress on last line of screen
 set hidden "keep unloaded buffers?
 set guioptions=aegimt
-set guifont=Droid\ Sans\ Mono:h16
 set incsearch "show search results as you type
 set t_co=256
 set showmatch "when bracket inserted, briefly jump to matching one if visible
@@ -66,26 +65,25 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' "vundle
 Plugin 'chriskempson/base16-vim' "color schemes
-Plugin 'bling/vim-airline.git' "airline
+Plugin 'bling/vim-airline' "airline
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
-Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex' "latex
 Plugin 'tpope/vim-surround' "pair plugin, brackets etc
 Plugin 'tpope/vim-commentary' "comment stuff out
 Plugin 'tpope/vim-fugitive' "Git wrapper
-Plugin 'scrooloose/nerdtree' "file browser
 Plugin 'scrooloose/syntastic' "syntax checking
+Plugin 'scrooloose/nerdtree' "file browser
 Plugin 'pangloss/vim-javascript' "better js indentation/highlighting
 Plugin 'marijnh/tern_for_vim' "js autocomplete, also needs an npm install
 Plugin 'vim-ruby/vim-ruby' "better ruby support (esp autocomp)
 Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
+Plugin 'lervag/vimtex'
 call vundle#end()
-execute pathogen#infect()
 
 filetype plugin indent on
 set autoread "if file changed outside of vim, just read it again
-set guifont=Droid\ Sans\ Mono\ 11 "set the font to a better looking mono font
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\11 "set the font to a better looking mono font
 au FileType python set softtabstop=2 | set shiftwidth=2
 au FileType ruby set tabstop=2 | set shiftwidth=2
 au FileType js set tabstop=2 | set shiftwidth=2
@@ -105,3 +103,4 @@ colorscheme base16-monokai
 :setlocal spell spelllang=en_us
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1

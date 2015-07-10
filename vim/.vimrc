@@ -77,14 +77,11 @@ Plugin 'pangloss/vim-javascript' "better js indentation/highlighting
 Plugin 'marijnh/tern_for_vim' "js autocomplete, also needs an npm install
 Plugin 'vim-ruby/vim-ruby' "better ruby support (esp autocomp)
 Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
-Plugin 'xolox/vim-misc' "Dependency for vim-notes
-Plugin 'xolox/vim-notes' "Note taking plugin
 Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
 Plugin 'lervag/vimtex'
 Plugin 'wakatime/vim-wakatime'
 call vundle#end()
-execute pathogen#infect()
 
 filetype plugin indent on
 set autoread "if file changed outside of vim, just read it again
@@ -104,16 +101,12 @@ set t_co=256
 set background=dark
 colorscheme base16-monokai
 
-"Vim-notes settings
-:let g:notes_suffix = '.txt'
-
 "Turn on spell check
 :setlocal spell spelllang=en_us
 
 "Ycm default config
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:airline#extensions#tabline#enabled = 1
-
 let g:airline_powerline_fonts = 1
 
 let g:vimtex_fold_preamble = 0
