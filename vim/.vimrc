@@ -91,7 +91,7 @@ call vundle#end()
 filetype plugin indent on
 set autoread "if file changed outside of vim, just read it again
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 "set the font to a better looking mono font
-au FileType python set softtabstop=2 | set shiftwidth=2
+au FileType python set softtabstop=4 | set shiftwidth=4
 au FileType ruby set tabstop=2 | set shiftwidth=2
 au FileType js set tabstop=2 | set shiftwidth=2
 
