@@ -11,6 +11,12 @@ command W w
 command Q q
 noremap <C-n> :NERDTreeToggle<CR> "NERDTree toggle
 
+"Move between splits faster
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 "Basics
 set cursorline "highlight current line of cursor
 "hi CursorLine ctermbg=darkgray "8 = dark gray, 15 = white
@@ -43,7 +49,7 @@ set ignorecase "ignore case in searches
 set smartcase "override ignore case if the search has Captials
 set showcmd "show the command in progress on last line of screen
 set hidden "keep unloaded buffers?
-set guioptions=aegimt
+set guioptions=agi
 set incsearch "show search results as you type
 set t_co=256
 set showmatch "when bracket inserted, briefly jump to matching one if visible
@@ -80,7 +86,6 @@ Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
 Plugin 'lervag/vimtex'
-Plugin 'wakatime/vim-wakatime'
 call vundle#end()
 
 filetype plugin indent on
@@ -97,7 +102,7 @@ vmap <C-v> c<ESC>"+p
 vmap <C-v> <C-r><C-o>+
 
 "Chris Theme
-set t_co=256
+"set t_co=256
 set background=dark
 colorscheme base16-monokai
 
