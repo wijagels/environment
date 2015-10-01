@@ -17,6 +17,12 @@ source '/home/william/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 source '/home/william/google-cloud-sdk/completion.zsh.inc'
+
+
+export TERM=screen-256color
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:

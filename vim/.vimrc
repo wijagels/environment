@@ -87,6 +87,8 @@ Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
 Plugin 'lervag/vimtex'
 Plugin 'wakatime/vim-wakatime'
+Plugin 'christoomey/vim-tmux-navigator'
+Bundle 'edkolev/tmuxline.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -103,7 +105,8 @@ vmap <C-v> c<ESC>"+p
 vmap <C-v> <C-r><C-o>+
 
 "Chris Theme
-"set t_co=256
+let base16colorspace=256
+set t_co=256
 set background=dark
 colorscheme base16-monokai
 
