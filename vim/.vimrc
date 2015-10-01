@@ -9,7 +9,7 @@ map j gj
 map k gk
 command W w
 command Q q
-noremap <C-n> :NERDTreeToggle<CR> "NERDTree toggle
+noremap <C-y> :NERDTreeToggle<CR>
 
 "Basics
 set cursorline "highlight current line of cursor
