@@ -86,6 +86,7 @@ Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 Plugin 'airblade/vim-gitgutter' "Git gutter
 Plugin 'digitaltoad/vim-jade' "Jade support
 Plugin 'lervag/vimtex'
+Plugin 'wakatime/vim-wakatime'
 call vundle#end()
 
 filetype plugin indent on
