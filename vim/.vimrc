@@ -89,6 +89,8 @@ Plugin 'lervag/vimtex'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'christoomey/vim-tmux-navigator'
 Bundle 'edkolev/tmuxline.vim'
+Plugin 'jeaye/color_coded'
+Plugin 'rdnetto/YCM-Generator'
 call vundle#end()
 
 filetype plugin indent on
@@ -119,3 +121,4 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 let g:vimtex_fold_preamble = 0
+let g:color_coded_enabled = 1
