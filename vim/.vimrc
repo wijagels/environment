@@ -91,6 +91,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Bundle 'edkolev/tmuxline.vim'
 Plugin 'jeaye/color_coded'
 Plugin 'rdnetto/YCM-Generator'
+Plugin 'Valloric/MatchTagAlways'
 call vundle#end()
 
 filetype plugin indent on
@@ -117,6 +118,9 @@ colorscheme base16-monokai
 
 "Ycm default config
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
