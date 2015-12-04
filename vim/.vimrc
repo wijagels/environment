@@ -17,6 +17,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"Clobber trailing spaces
+:command Trsp :%s/\s\+$//
+
 "Basics
 set cursorline "highlight current line of cursor
 "hi CursorLine ctermbg=darkgray "8 = dark gray, 15 = white
@@ -92,6 +95,7 @@ Bundle 'edkolev/tmuxline.vim'
 Plugin 'jeaye/color_coded'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'sjl/gundo.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -100,6 +104,8 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 "set the font to a better look
 au FileType python set softtabstop=4 | set shiftwidth=4
 au FileType ruby set tabstop=2 | set shiftwidth=2
 au FileType js set tabstop=2 | set shiftwidth=2
+au FileType html set tabstop=2 | set shiftwidth=2
+au FileType css set tabstop=2 | set shiftwidth=2
 
 "copy and paste
 vmap <C-c> "+yi
@@ -126,3 +132,5 @@ let g:airline_powerline_fonts = 1
 
 let g:vimtex_fold_preamble = 0
 let g:color_coded_enabled = 1
+
+nnoremap <F5> :GundoToggle<CR>
