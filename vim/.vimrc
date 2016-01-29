@@ -64,6 +64,7 @@ autocmd FileType c,objc,cpp set commentstring=//\ %s "c comments
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let NERDTreeQuitOnOpen=1
 set rtp+=~/.vim/bundle/vim-airline/vim-airline/bindings/vim "airline
+set backspace=2 "Sometimes backspace works weirdly, this fixes it
 "YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion=1
 
@@ -96,6 +97,10 @@ Plugin 'jeaye/color_coded'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'sjl/gundo.vim'
+Plugin 'rhysd/committia.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 call vundle#end()
 
 filetype plugin indent on
@@ -132,5 +137,7 @@ let g:airline_powerline_fonts = 1
 
 let g:vimtex_fold_preamble = 0
 let g:color_coded_enabled = 1
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 nnoremap <F5> :GundoToggle<CR>
