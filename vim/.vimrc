@@ -63,7 +63,6 @@ set ruler
 autocmd FileType c,objc,cpp set commentstring=//\ %s "c comments
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let NERDTreeQuitOnOpen=1
-set rtp+=~/.vim/bundle/vim-airline/vim-airline/bindings/vim "airline
 set backspace=2 "Sometimes backspace works weirdly, this fixes it
 "YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion=1
@@ -75,7 +74,8 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' "vundle
 Plugin 'chriskempson/base16-vim' "color schemes
-Plugin 'bling/vim-airline' "airline
+Plugin 'vim-airline/vim-airline' "airline
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
 Plugin 'tpope/vim-surround' "pair plugin, brackets etc
 Plugin 'tpope/vim-commentary' "comment stuff out
@@ -92,7 +92,7 @@ Plugin 'digitaltoad/vim-jade' "Jade support
 Plugin 'lervag/vimtex'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'christoomey/vim-tmux-navigator'
-Bundle 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'jeaye/color_coded'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'Valloric/MatchTagAlways'
@@ -111,6 +111,7 @@ au FileType ruby set tabstop=2 | set shiftwidth=2
 au FileType js set tabstop=2 | set shiftwidth=2
 au FileType html set tabstop=2 | set shiftwidth=2
 au FileType css set tabstop=2 | set shiftwidth=2
+au FileType tex set tabstop=2 | set shiftwidth=2
 
 "copy and paste
 vmap <C-c> "+yi
@@ -120,7 +121,6 @@ vmap <C-v> <C-r><C-o>+
 
 "Chris Theme
 let base16colorspace=256
-set t_co=256
 set background=dark
 colorscheme base16-monokai
 
@@ -139,5 +139,6 @@ let g:vimtex_fold_preamble = 0
 let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_c_checkers = ['gcc', 'oclint']
 
 nnoremap <F5> :GundoToggle<CR>

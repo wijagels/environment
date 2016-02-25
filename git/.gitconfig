@@ -1,6 +1,7 @@
 [user]
 	name = William Jagels
 	email = will.jagels@gmail.com
+	signingkey = CC77338A
 [color]
 	ui = true
 [push]
