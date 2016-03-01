@@ -123,6 +123,7 @@ vmap <C-v> <C-r><C-o>+
 let base16colorspace=256
 set background=dark
 colorscheme base16-monokai
+let g:airline_theme='base16'
 
 "Turn on spell check
 :setlocal spell spelllang=en_us
