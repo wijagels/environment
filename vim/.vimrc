@@ -108,7 +108,8 @@ set autoread "if file changed outside of vim, just read it again
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 "set the font to a better looking mono font
 au FileType python set softtabstop=4 | set shiftwidth=4
 au FileType ruby set tabstop=2 | set shiftwidth=2
-au FileType js set tabstop=2 | set shiftwidth=2
+au FileType javascript set tabstop=2 | set shiftwidth=2
+au FileType json set tabstop=2 | set shiftwidth=2
 au FileType html set tabstop=2 | set shiftwidth=2
 au FileType css set tabstop=2 | set shiftwidth=2
 au FileType tex set tabstop=2 | set shiftwidth=2
@@ -141,5 +142,8 @@ let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['gcc', 'oclint']
+" let g:ycm_register_as_syntastic_checker = 0
+let g:syntastic_cpp_checkers=['cpplint']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
 
 nnoremap <F5> :GundoToggle<CR>
