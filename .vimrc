@@ -39,7 +39,6 @@ set ttyfast "assume terminal is fast, improves visuals
 set nocompatible "disable ancient compatibility, better overall
 set noswapfile "chris advice. no annoying swapfile on disk; pure in memory
 set nobackup "no backup when overwriting a file
-filetype off "required for vundle
 set wrap "wrap long lines
 syntax on "syntax highlighting automatically
 set undofile "save your undos on disk and always have them!
@@ -67,41 +66,32 @@ set backspace=2 "Sometimes backspace works weirdly, this fixes it
 "YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion=1
 
-"Vundle
-set rtp+=~/.vim/bundle/Vundle.vim/
-"MUST CHANGE ON SOME SITUATIONS^
-
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim' "vundle
-Plugin 'chriskempson/base16-vim' "color schemes
-Plugin 'vim-airline/vim-airline' "airline
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
-Plugin 'tpope/vim-surround' "pair plugin, brackets etc
-Plugin 'tpope/vim-commentary' "comment stuff out
-Plugin 'tpope/vim-fugitive' "Git wrapper
-Plugin 'scrooloose/syntastic' "syntax checking
-Plugin 'scrooloose/nerdtree' "file browser
-Plugin 'Valloric/YouCompleteMe' "autocomplete
-Plugin 'pangloss/vim-javascript' "better js indentation/highlighting
-Plugin 'marijnh/tern_for_vim' "js autocomplete, also needs an npm install
-Plugin 'vim-ruby/vim-ruby' "better ruby support (esp autocomp)
-Plugin 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
-Plugin 'airblade/vim-gitgutter' "Git gutter
-Plugin 'digitaltoad/vim-jade' "Jade support
-Plugin 'lervag/vimtex'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'jeaye/color_coded'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'sjl/gundo.vim'
-Plugin 'rhysd/committia.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'chriskempson/base16-vim' "color schemes
+Plug 'vim-airline/vim-airline' "airline
+Plug 'vim-airline/vim-airline-themes'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
+Plug 'tpope/vim-surround' "pair plugin, brackets etc
+Plug 'tpope/vim-commentary' "comment stuff out
+Plug 'tpope/vim-fugitive' "Git wrapper
+Plug 'scrooloose/syntastic' "syntax checking
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "file browser
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --clang-completer' } "autocomplete
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' } "better js indentation/highlighting
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript' } "js autocomplete, also needs an npm install
+Plug 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
+Plug 'airblade/vim-gitgutter' "Git gutter
+Plug 'lervag/vimtex', { 'for': 'tex' } " LaTeX plugin, auto compiles
+Plug 'wakatime/vim-wakatime'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
+Plug 'jeaye/color_coded', { 'do': 'cmake . && make && make install' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'Valloric/MatchTagAlways'
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+Plug 'rhysd/committia.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+call plug#end()
 
 filetype plugin indent on
 set autoread "if file changed outside of vim, just read it again
@@ -142,8 +132,10 @@ let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['gcc', 'oclint']
-" let g:ycm_register_as_syntastic_checker = 0
-let g:syntastic_cpp_checkers=['cpplint']
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_show_diagnostics_ui = 1
+let g:syntastic_cpp_checkers=['cpplint', 'oclint']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
+let g:syntastic_aggregate_errors = 1
 
 nnoremap <F5> :GundoToggle<CR>
