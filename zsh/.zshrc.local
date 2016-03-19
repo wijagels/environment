@@ -23,6 +23,15 @@ export TERM=xterm-256color
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+alias lh="ls -lh"
+
+source ~/google-cloud-sdk/completion.zsh.inc
+
+export NVM_DIR="/home/william/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -s "/usr/share/bash-completion/completions/lpass" ] && source /usr/share/bash-completion/completions/lpass
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:
