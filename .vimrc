@@ -1,5 +1,4 @@
 set shell=/usr/bin/zsh
-"Jack
 
 "Key controls
 "nmap s :w <enter>
@@ -9,7 +8,6 @@ map j gj
 map k gk
 command W w
 command Q q
-noremap <C-y> :NERDTreeToggle<CR>
 
 "Move between splits faster
 nnoremap <C-J> <C-W><C-J>
@@ -22,10 +20,6 @@ nnoremap <C-H> <C-W><C-H>
 
 "Basics
 set cursorline "highlight current line of cursor
-"hi CursorLine ctermbg=darkgray "8 = dark gray, 15 = white
-"hi Cursor ctermbg=15 ctermfg=8
-" set colorcolumn=80 "highlight the column to break by
-highlight ColorColumn ctermbg=black "color
 set exrc "use directory specific vimrc if there
 set notimeout "waiting for keys
 set ttimeout "waiting for keys
@@ -60,11 +54,7 @@ set mouse=a "mouse enabled just in case
 set clipboard=unnamed "copy paste with the system clipboard
 set ruler
 autocmd FileType c,objc,cpp set commentstring=//\ %s "c comments
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let NERDTreeQuitOnOpen=1
 set backspace=2 "Sometimes backspace works weirdly, this fixes it
-"YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion=1
 
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim' "color schemes
@@ -91,6 +81,8 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'rhysd/committia.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'klen/python-mode'
 call plug#end()
 
 filetype plugin indent on
@@ -104,12 +96,6 @@ au FileType html set tabstop=2 | set shiftwidth=2
 au FileType css set tabstop=2 | set shiftwidth=2
 au FileType tex set tabstop=2 | set shiftwidth=2
 
-"copy and paste
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-vmap <C-v> <C-r><C-o>+
-
 "Chris Theme
 let base16colorspace=256
 set background=dark
@@ -119,23 +105,28 @@ let g:airline_theme='base16'
 "Turn on spell check
 :setlocal spell spelllang=en_us
 
-"Ycm default config
+"YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_show_diagnostics_ui = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 let g:vimtex_fold_preamble = 0
+
 let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['gcc', 'oclint']
-let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_show_diagnostics_ui = 1
 let g:syntastic_cpp_checkers=['cpplint', 'oclint']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_aggregate_errors = 1
 
 nnoremap <F5> :GundoToggle<CR>
+
+noremap <C-y> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1

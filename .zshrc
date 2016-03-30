@@ -51,7 +51,7 @@ plugins=(git colored-man-pages colorize history-substring-search tmux ubuntu npm
 
 # User configuration
 
-export PATH="/home/william/google-cloud-sdk/bin:/home/william/.local/bin:/home/william/.rbenv/shims:/home/william/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/home/william/google-cloud-sdk/bin:/home/william/.local/bin:/home/william/.rbenv/shims:/home/william/.rbenv/bin:/home/william/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 [[ -s $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
 

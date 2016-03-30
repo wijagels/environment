@@ -11,6 +11,7 @@ export GOPATH="/home/william/go"
 
 alias emacs="cowsay -f dragon-and-cow I\'m sorry, Dave. I\'m afraid I can\'t do that."
 alias nano=emacs
+alias mb="make -B"
 
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/william/google-cloud-sdk/path.zsh.inc'
