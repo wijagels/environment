@@ -16,9 +16,8 @@ alias mb="make -B"
 # The next line updates PATH for the Google Cloud SDK.
 source '/home/william/google-cloud-sdk/path.zsh.inc'
 
-# The next line enables bash completion for gcloud.
+# The next line enables shell command completion for gcloud.
 source '/home/william/google-cloud-sdk/completion.zsh.inc'
-
 
 export TERM=xterm-256color
 # Base16 Shell
@@ -27,12 +26,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
 
 alias lh="ls -lh"
 
-source ~/google-cloud-sdk/completion.zsh.inc
-
 export NVM_DIR="/home/william/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-[ -s "/usr/share/bash-completion/completions/lpass" ] && source /usr/share/bash-completion/completions/lpass
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# source /usr/bin/virtualenvwrapper.sh
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
 # Local variables:

@@ -66,9 +66,8 @@ Plug 'tpope/vim-commentary' "comment stuff out
 Plug 'tpope/vim-fugitive' "Git wrapper
 Plug 'scrooloose/syntastic' "syntax checking
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "file browser
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --clang-completer' } "autocomplete
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer --clang-completer --system-libclang' } "autocomplete
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' } "better js indentation/highlighting
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript' } "js autocomplete, also needs an npm install
 Plug 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 Plug 'airblade/vim-gitgutter' "Git gutter
 Plug 'lervag/vimtex', { 'for': 'tex' } " LaTeX plugin, auto compiles
@@ -130,3 +129,4 @@ nnoremap <F5> :GundoToggle<CR>
 
 noremap <C-y> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
+let g:ycm_server_python_interpreter = '/usr/bin/python'

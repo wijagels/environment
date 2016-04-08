@@ -7,9 +7,12 @@ export ZSH=~/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time ram battery)
-POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
+POWERLEVEL9K_MODE='awesome-fontconfig'
 DEFAULT_USER=$USER
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_STATUS_VERBOSE=false
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -47,12 +50,12 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize history-substring-search tmux ubuntu npm pip sudo web-search)
+plugins=(git colored-man-pages colorize history-substring-search tmux npm pip sudo archlinux virtualenvwrapper)
 
 # User configuration
 
-export PATH="/home/william/google-cloud-sdk/bin:/home/william/.local/bin:/home/william/.rbenv/shims:/home/william/.rbenv/bin:/home/william/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$HOME/bin:$PATH
+export EDITOR='vim'
 [[ -s $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
 
 source $ZSH/oh-my-zsh.sh
