@@ -1,3 +1,4 @@
+set nocompatible "disable ancient compatibility, better overall
 set shell=/usr/bin/zsh
 
 "Key controls
@@ -30,7 +31,7 @@ set scrolloff=10 "keep 10 lines visible at top and bottom when scrolling
 set shiftwidth=4 "spaces for each level of autoindent
 set expandtab "use the above #spaces to insert a tab
 set ttyfast "assume terminal is fast, improves visuals
-set nocompatible "disable ancient compatibility, better overall
+set lazyredraw
 set noswapfile "chris advice. no annoying swapfile on disk; pure in memory
 set nobackup "no backup when overwriting a file
 set wrap "wrap long lines
@@ -49,7 +50,7 @@ set guioptions=agi
 set incsearch "show search results as you type
 set t_co=256
 set showmatch "when bracket inserted, briefly jump to matching one if visible
-set autochdir "auto change the folder when you change files
+" set autochdir "auto change the folder when you change files
 set mouse=a "mouse enabled just in case
 set clipboard=unnamed "copy paste with the system clipboard
 set ruler
@@ -58,15 +59,15 @@ set backspace=2 "Sometimes backspace works weirdly, this fixes it
 
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim' "color schemes
-Plug 'vim-airline/vim-airline' "airline
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline' "airline
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
-Plug 'tpope/vim-surround' "pair plugin, brackets etc
+" Plug 'tpope/vim-surround' "pair plugin, brackets etc
 Plug 'tpope/vim-commentary' "comment stuff out
 Plug 'tpope/vim-fugitive' "Git wrapper
-Plug 'scrooloose/syntastic' "syntax checking
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "file browser
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer --clang-completer --system-libclang' } "autocomplete
+" Plug 'scrooloose/syntastic' "syntax checking
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "file browser
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer --clang-completer --system-libclang' } "autocomplete
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' } "better js indentation/highlighting
 Plug 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 Plug 'airblade/vim-gitgutter' "Git gutter
@@ -74,26 +75,34 @@ Plug 'lervag/vimtex', { 'for': 'tex' } " LaTeX plugin, auto compiles
 Plug 'wakatime/vim-wakatime'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
-Plug 'jeaye/color_coded', { 'do': 'cmake . && make && make install' }
+" Plug 'jeaye/color_coded', { 'do': 'mkdir build && cd build && cmake .. && make && make install && make clean && make clean_clang' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'rhysd/committia.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'klen/python-mode'
+" Plug 'klen/python-mode'
+Plug 'raimondi/delimitmate'
+Plug 'easymotion/vim-easymotion'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimshell.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'pmsorhaindo/syntastic-local-eslint.vim'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 filetype plugin indent on
 set autoread "if file changed outside of vim, just read it again
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11 "set the font to a better looking mono font
-au FileType python set softtabstop=4 | set shiftwidth=4
-au FileType ruby set tabstop=2 | set shiftwidth=2
-au FileType javascript set tabstop=2 | set shiftwidth=2
-au FileType json set tabstop=2 | set shiftwidth=2
-au FileType html set tabstop=2 | set shiftwidth=2
-au FileType css set tabstop=2 | set shiftwidth=2
-au FileType tex set tabstop=2 | set shiftwidth=2
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 13 "set the font to a better looking mono font
+au FileType python setlocal softtabstop=4 | setlocal shiftwidth=4
+au FileType ruby setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType javascript setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType json setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType html setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType css setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType tex setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType cpp setlocal tabstop=2 | setlocal shiftwidth=2
 
 "Chris Theme
 let base16colorspace=256
@@ -102,7 +111,7 @@ colorscheme base16-monokai
 let g:airline_theme='base16'
 
 "Turn on spell check
-:setlocal spell spelllang=en_us
+setlocal spell spelllang=en_us
 
 "YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion=1
@@ -110,7 +119,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_show_diagnostics_ui = 1
+let g:ycm_show_diagnostics_ui = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -125,8 +134,13 @@ let g:syntastic_cpp_checkers=['cpplint', 'oclint']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_aggregate_errors = 1
 
+let g:clang_format#code_style = 'google'
+map <C-U> :ClangFormat<CR>
+let g:clang_format#auto_formatexpr = 1
+autocmd FileType c,cpp ClangFormatAutoEnable
+
 nnoremap <F5> :GundoToggle<CR>
 
 noremap <C-y> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
-let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
