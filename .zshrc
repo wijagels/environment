@@ -1,10 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
@@ -52,10 +48,17 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git colored-man-pages colorize history-substring-search tmux npm pip sudo archlinux virtualenvwrapper)
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 export PATH=$HOME/bin:$PATH
 export EDITOR='vim'
 [[ -s $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
 
-source $ZSH/oh-my-zsh.sh
+
+# Use ccache if it's available
+# if [[ -x $(which ccache) ]]; then
+#     export CC="ccache ${CC-gcc}"
+#     export CXX="ccache ${CXX-g++}"
+# fi
