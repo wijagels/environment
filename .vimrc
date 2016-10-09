@@ -76,7 +76,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
 " Plug 'jeaye/color_coded', { 'do': 'mkdir build && cd build && cmake .. && make && make install && make clean && make clean_clang' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'rhysd/committia.vim'
@@ -114,7 +114,7 @@ let g:airline_theme='base16'
 setlocal spell spelllang=en_us
 
 "YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -129,7 +129,7 @@ let g:vimtex_fold_preamble = 0
 let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_c_checkers = ['gcc', 'oclint']
+let g:syntastic_c_checkers = ['oclint', 'clang_check', 'gcc', 'make']
 let g:syntastic_cpp_checkers=['cpplint', 'oclint']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_aggregate_errors = 1
@@ -143,4 +143,4 @@ nnoremap <F5> :GundoToggle<CR>
 
 noremap <C-y> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+" let g:ycm_server_python_interpreter = '/usr/bin/python2'

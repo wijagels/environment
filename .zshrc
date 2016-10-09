@@ -46,13 +46,13 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages colorize history-substring-search tmux npm pip sudo archlinux virtualenvwrapper)
+plugins=(git colored-man-pages colorize history-substring-search tmux npm pip sudo archlinux virtualenvwrapper systemd)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:$PATH
 export EDITOR='vim'
 [[ -s $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
 
