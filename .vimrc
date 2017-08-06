@@ -17,11 +17,12 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "Clobber trailing spaces
-:command Trsp :%s/\s\+$//
+command Trsp :%s/\s\+$//|:noh|:w
 
 "Basics
 set cursorline "highlight current line of cursor
 set exrc "use directory specific vimrc if there
+set secure " No hax allowed
 set notimeout "waiting for keys
 set ttimeout "waiting for keys
 set timeoutlen=50 "wait time for combos
@@ -103,6 +104,8 @@ au FileType html setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType css setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType tex setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType cpp setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType yaml setlocal tabstop=2 | setlocal shiftwidth=2
+au FileType go setlocal expandtab! | setlocal noexpandtab | setlocal tabstop=4 | setlocal shiftwidth=4
 
 "Chris Theme
 let base16colorspace=256
@@ -119,7 +122,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_show_diagnostics_ui = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -130,11 +133,11 @@ let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['oclint', 'clang_check', 'gcc', 'make']
-let g:syntastic_cpp_checkers=['cpplint', 'oclint']
+let g:syntastic_cpp_checkers=['cpplint', 'clang_check', 'gcc', 'make']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_cpp_clang_check_args="-Wc++11-extensions"
 
-let g:clang_format#code_style = 'google'
 map <C-U> :ClangFormat<CR>
 let g:clang_format#auto_formatexpr = 1
 autocmd FileType c,cpp ClangFormatAutoEnable
@@ -143,4 +146,4 @@ nnoremap <F5> :GundoToggle<CR>
 
 noremap <C-y> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
-" let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'

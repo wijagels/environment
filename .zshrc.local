@@ -32,8 +32,28 @@ export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # source /usr/bin/virtualenvwrapper.sh
 
+CXX=g++
+CC=gcc
+
 
 archey
+
+
+whore-mote() {
+    local i=0;
+    for i in `seq 0 7`; do;
+        printf "=======remote0$i=======\n" >&2;
+        ssh wjagels1@remote0$i.cs.binghamton.edu who;
+    done;
+}
+
+auto-spam() {
+    local i=0;
+    for i in `seq 0 7`;
+    do;
+        ssh wjagels1@remote0$i.cs.binghamton.edu who | awk '{print $1}';
+    done;
+}
 
 ## END OF FILE #################################################################
 # vim:filetype=zsh foldmethod=marker autoindent expandtab shiftwidth=4
