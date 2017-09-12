@@ -1,12 +1,9 @@
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 export PATH="$HOME/.local/bin:$PATH"
 
 # Get time information more frequently (>1 second vs >5 seconds)
 REPORTTIME=1
 
-export GOPATH="/home/william/go"
+export GOPATH="$HOME/go"
 
 alias emacs="cowsay -f dragon-and-cow I\'m sorry, Dave. I\'m afraid I can\'t do that."
 alias nano=emacs
@@ -28,9 +25,9 @@ alias lh="ls -lh"
 export NVM_DIR="/home/william/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source /usr/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# # source /usr/bin/virtualenvwrapper.sh
 
 CXX=g++
 CC=gcc
@@ -43,7 +40,7 @@ whore-mote() {
     local i=0;
     for i in `seq 0 7`; do;
         printf "=======remote0$i=======\n" >&2;
-        ssh wjagels1@remote0$i.cs.binghamton.edu who;
+        ssh wjagels1@remote0$i.cs.binghamton.edu -o ConnectTimeout=3 -o BatchMode=yes w;
     done;
 }
 
@@ -51,7 +48,7 @@ auto-spam() {
     local i=0;
     for i in `seq 0 7`;
     do;
-        ssh wjagels1@remote0$i.cs.binghamton.edu who | awk '{print $1}';
+        timeout 4 ssh wjagels1@remote0$i.cs.binghamton.edu -o ConnectTimeout=3 -o BatchMode=yes who | awk '{print $1}';
     done;
 }
 

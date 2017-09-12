@@ -84,7 +84,7 @@ Plug 'rhysd/committia.vim'
 " Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 " Plug 'klen/python-mode'
-Plug 'raimondi/delimitmate'
+"" Plug 'raimondi/delimitmate'
 Plug 'easymotion/vim-easymotion'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
@@ -133,14 +133,14 @@ let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['oclint', 'clang_check', 'gcc', 'make']
-let g:syntastic_cpp_checkers=['cpplint', 'clang_check', 'gcc', 'make']
+let g:syntastic_cpp_checkers=['cpplint', 'clang_check', 'gcc', 'make', 'clang_tidy']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_cpp_clang_check_args="-Wc++11-extensions"
 
 map <C-U> :ClangFormat<CR>
 let g:clang_format#auto_formatexpr = 1
-autocmd FileType c,cpp ClangFormatAutoEnable
+" autocmd FileType c,cpp ClangFormatAutoEnable
 
 nnoremap <F5> :GundoToggle<CR>
 
