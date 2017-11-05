@@ -56,7 +56,10 @@ set mouse=a "mouse enabled just in case
 set clipboard=unnamed "copy paste with the system clipboard
 set ruler
 autocmd FileType c,objc,cpp set commentstring=//\ %s "c comments
+autocmd FileType cmake set commentstring=#\ %s "c comments
 set backspace=2 "Sometimes backspace works weirdly, this fixes it
+set history=200
+set wildmenu
 
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim' "color schemes
@@ -65,7 +68,7 @@ Plug 'chriskempson/base16-vim' "color schemes
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'} "writing html, sick
 " Plug 'tpope/vim-surround' "pair plugin, brackets etc
 Plug 'tpope/vim-commentary' "comment stuff out
-Plug 'tpope/vim-fugitive' "Git wrapper
+" Plug 'tpope/vim-fugitive' "Git wrapper
 " Plug 'scrooloose/syntastic' "syntax checking
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "file browser
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer --clang-completer --system-libclang' } "autocomplete
@@ -76,8 +79,8 @@ Plug 'lervag/vimtex', { 'for': 'tex' } " LaTeX plugin, auto compiles
 Plug 'wakatime/vim-wakatime'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
-" Plug 'jeaye/color_coded', { 'do': 'mkdir build && cd build && cmake .. && make && make install && make clean && make clean_clang' }
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+"" Plug 'jeaye/color_coded', { 'do': 'mkdir build && cd build && cmake .. && make && make install && make clean && make clean_clang' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'rhysd/committia.vim'
@@ -86,7 +89,7 @@ Plug 'easymotion/vim-easymotion'
 " Plug 'klen/python-mode'
 "" Plug 'raimondi/delimitmate'
 Plug 'easymotion/vim-easymotion'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'pmsorhaindo/syntastic-local-eslint.vim'
@@ -107,18 +110,19 @@ au FileType cpp setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType yaml setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType go setlocal expandtab! | setlocal noexpandtab | setlocal tabstop=4 | setlocal shiftwidth=4
 
-"Chris Theme
-let base16colorspace=256
-set background=dark
-colorscheme base16-monokai
 let g:airline_theme='base16'
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 "Turn on spell check
 setlocal spell spelllang=en_us
 
 "YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_register_as_syntastic_checker = 1
