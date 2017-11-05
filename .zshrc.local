@@ -9,25 +9,11 @@ alias emacs="cowsay -f dragon-and-cow I\'m sorry, Dave. I\'m afraid I can\'t do 
 alias nano=emacs
 alias mb="make -B"
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/william/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/home/william/google-cloud-sdk/completion.zsh.inc'
-
-export TERM=xterm-256color
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 alias lh="ls -lh"
 
-export NVM_DIR="/home/william/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# export WORKON_HOME=~/.virtualenvs
-# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# # source /usr/bin/virtualenvwrapper.sh
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+base16_monokai
 
 CXX=g++
 CC=gcc
