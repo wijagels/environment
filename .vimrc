@@ -60,6 +60,8 @@ autocmd FileType cmake set commentstring=#\ %s "c comments
 set backspace=2 "Sometimes backspace works weirdly, this fixes it
 set history=200
 set wildmenu
+set wildignorecase
+set wildignore="*.o,*.out,*.pyc"
 
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim' "color schemes
@@ -71,7 +73,8 @@ Plug 'tpope/vim-commentary' "comment stuff out
 " Plug 'tpope/vim-fugitive' "Git wrapper
 " Plug 'scrooloose/syntastic' "syntax checking
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "file browser
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer --clang-completer --system-libclang' } "autocomplete
+" Plug 'Valloric/YouCompleteMe',
+"{ 'do': './install.py --tern-completer --gocode-completer --clang-completer --system-libclang' } "autocomplete
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' } "better js indentation/highlighting
 Plug 'terryma/vim-multiple-cursors' "Multiple cursors like in sublime
 Plug 'airblade/vim-gitgutter' "Git gutter
@@ -86,14 +89,11 @@ Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'rhysd/committia.vim'
 " Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
-" Plug 'klen/python-mode'
-"" Plug 'raimondi/delimitmate'
-Plug 'easymotion/vim-easymotion'
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'pmsorhaindo/syntastic-local-eslint.vim'
-Plug 'rhysd/vim-clang-format'
+Plug 'lyuts/vim-rtags'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 filetype plugin indent on
@@ -109,6 +109,7 @@ au FileType tex setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType cpp setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType yaml setlocal tabstop=2 | setlocal shiftwidth=2
 au FileType go setlocal expandtab! | setlocal noexpandtab | setlocal tabstop=4 | setlocal shiftwidth=4
+au FileType proto setlocal tabstop=2 | setlocal shiftwidth=2
 
 let g:airline_theme='base16'
 
@@ -137,10 +138,9 @@ let g:color_coded_enabled = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['oclint', 'clang_check', 'gcc', 'make']
-let g:syntastic_cpp_checkers=['cpplint', 'clang_check', 'gcc', 'make', 'clang_tidy']
+" let g:syntastic_cpp_checkers=['gcc', 'make', 'clang_tidy']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_cpp_clang_check_args="-Wc++11-extensions"
 
 map <C-U> :ClangFormat<CR>
 let g:clang_format#auto_formatexpr = 1
@@ -151,3 +151,5 @@ nnoremap <F5> :GundoToggle<CR>
 noremap <C-y> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
+
+let g:neoformat_enabled_python = ['clangformat']
